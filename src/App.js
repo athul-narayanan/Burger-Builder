@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Layout from './components/layout';
+import React from 'react'
+import BurgerBuilder from './containers/BurgerBuilder';
+import Checkout from './components/checkout/checkout';
+import {Route} from 'react-router-dom'
+import Orders from './components/orders/Orders';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Layout>
+        <Route path="/" exact component={BurgerBuilder}/>
+        <Route path="/checkout" component={Checkout}/>
+        <Route path="/orders" component={Orders} />
+      </Layout>
     </div>
   );
 }
